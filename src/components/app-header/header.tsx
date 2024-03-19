@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React from 'react'
 import './header.scss'
 import Toolbar from '../toolbar';
 import { Link } from 'react-router-dom';
@@ -11,7 +11,7 @@ const headerData: HeaderDataProps = {
   title: 'website'
 }
 
-const Header: FC = () => {
+const Header: React.FC = () => {
   return (
     <header className='header'>
       <h1 className='header__title'>{headerData.title}</h1>
