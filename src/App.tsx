@@ -1,26 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { Routes, Route } from 'react-router-dom'
+import Home from './pages/page-home/page-home'
+import Login from './pages/page-login/page-login'
+import Register from './pages/page-register/page-register'
+import DefaultLayout from './layouts/ DefaultLayout'
+import ProtectedLayout from './layouts/ProtectedLayout'
+import PageMain from './pages/page-main'
 
-function App() {
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <Routes>
+        <Route element={<DefaultLayout />}>
+          <Route path='/login' element={<Login />} />
+          <Route path='/register' element={<Register />} />
+          <Route path='/main' element={<PageMain />} />
+        </Route>
+        <Route element={<ProtectedLayout />}>
+          <Route path='/' element={<Home />} />
+        </Route>
+      </Routes>
+    </>
+  )
 }
 
-export default App;
+export default App
